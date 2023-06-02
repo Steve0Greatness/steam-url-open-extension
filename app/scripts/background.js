@@ -1,15 +1,18 @@
 import loadImagePathForServiceWorker from './loadImage';
 
-console.log('Steam URL Opener Init');
+console.log('Itch.io URL Opener Init');
 
 const install = async () => {
-  console.log('Steam URL Opener install');
+  console.log('Itch.io URL Opener install');
 
-  const openTabInSteam = async tab => {
-    const steamURL = `steam://openurl/${tab.url}`;
-    console.log('navigating to:', steamURL);
+  const openTabInSteam = async _ => {
+    var itchPath = document.querySelector("meta[name='itch:path']");
+    if (!itchPath)
+        return;
+    const itchURL = `itch://${itchPath.content}`;
+    console.log('navigating to:', itchURL);
 
-    chrome.tabs.update({ url: steamURL });
+    chrome.tabs.update({ url: itchURL });
   };
 
   const RULE_ACTION_ENABLE = {
@@ -17,9 +20,6 @@ const install = async () => {
       new chrome.declarativeContent.PageStateMatcher({
         pageUrl: { hostEquals: 'store.steampowered.com'}
       }),
-      new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: { hostEquals: 'steamcommunity.com'}
-      })
     ],
     actions: [
       new chrome.declarativeContent.ShowAction(),

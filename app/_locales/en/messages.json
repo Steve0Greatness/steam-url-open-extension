@@ -1,10 +1,10 @@
 {
   "appName": {
-    "message": "Steam URL Opener",
+    "message": "Itch.io URL Opener",
     "description": "The name of the application"
   },
   "appShortName": {
-    "message": "steam-url-opener",
+    "message": "itchio-url-opener",
     "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
   },
   "appDescription": {

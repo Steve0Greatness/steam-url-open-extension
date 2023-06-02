@@ -1,7 +1,7 @@
 {
-  "name": "steam-url-opener",
+  "name": "itch-url-opener",
   "version": "0.1.1",
-  "description": "Allows you to open URLs inside Steam Client to save the hasle of logging in normal browser.",
+  "description": "Allows you to open URLs inside Itch.io Client to save the hasle of logging in normal browser.",
   "scripts": {
     "dev": "npx webextension-toolbox dev --autoReload=false",
     "build": "npx webextension-toolbox build"

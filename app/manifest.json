@@ -19,7 +19,7 @@
       "64": "images/icon-64.png",
       "128": "images/icon-128.png"
     },
-    "default_title": "Open in Steam"
+    "default_title": "Open in Itch"
   },
   "permissions": [
     "activeTab",
