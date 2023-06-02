@@ -5,10 +5,8 @@ console.log('Itch.io URL Opener Init');
 const install = async () => {
   console.log('Itch.io URL Opener install');
 
-  const openTabInSteam = async _ => {
+  const openTabInItch = async _ => {
     var itchPath = document.querySelector("meta[name='itch:path']");
-    if (!itchPath)
-        return;
     const itchURL = `itch://${itchPath.content}`;
     console.log('navigating to:', itchURL);
 
@@ -18,7 +16,7 @@ const install = async () => {
   const RULE_ACTION_ENABLE = {
     conditions: [
       new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: { hostEquals: 'store.steampowered.com'}
+        pageUrl: { hostEquals: 'itch.io'}
       }),
     ],
     actions: [
@@ -34,12 +32,12 @@ const install = async () => {
 
   chrome.action.disable(); // do not show action by default, only when rules are fullfilled
   chrome.declarativeContent.onPageChanged.removeRules(undefined, () => {
-    console.log('Steam URL Opener removeRules');
+    console.log('Itch URL Opener removeRules');
 
     chrome.declarativeContent.onPageChanged.addRules([RULE_ACTION_ENABLE]);
   });
 
-  chrome.action.onClicked.addListener(openTabInSteam);
+  chrome.action.onClicked.addListener(openTabInItch);
 
 };
 
